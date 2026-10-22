@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>پکیج‌های همکاری | زادمدیا — Digital Growth Partner</title>
+
+<!-- فونت‌های حرفه‌ای فارسی -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&family=Estedad:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+/* ============ RESET & BASE ============ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{
+  font-family:'Vazirmatn','Estedad',sans-serif;
+  background:#05060a;
+  color:#e8ecf3;
+  overflow-x:hidden;
+  line-height:1.75;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+}
+
+:root{
+  --bg-0:#05060a;
+  --bg-1:#0a0d17;
+  --bg-2:#111526;
+  --primary:#7c5cff;
+  --primary-2:#22d3ee;
+  --accent:#ff4d9d;
+  --gold:#f5c451;
+  --text:#e8ecf3;
+  --muted:#8b93a7;
+  --glass:rgba(255,255,255,0.04);
+  --glass-border:rgba(255,255,255,0.08);
+  --glow:0 0 40px rgba(124,92,255,0.35);
+}
+
+/* ============ ANIMATED BACKGROUND ============ */
+.bg-cosmos{
+  position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(1200px 800px at 80% -10%, rgba(124,92,255,0.25), transparent 60%),
+    radial-gradient(900px 700px at -10% 30%, rgba(34,211,238,0.18), transparent 60%),
+    radial-gradient(1000px 800px at 50% 120%, rgba(255,77,157,0.15), transparent 60%),
+    linear-gradient(180deg,#05060a 0%, #080a14 50%, #05060a 100%);
+}
+.bg-grid{
+  position:fixed;inset:0;z-index:-1;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse at center, black 40%, transparent 80%);
+  -webkit-mask-image:radial-gradient(ellipse at center, black 40%, transparent 80%);
+}
+.orb{
+  position:fixed;border-radius:50%;filter:blur(80px);opacity:.55;z-index:-1;
+  animation:float 18s ease-in-out infinite;
+  pointer-events:none;
+}
+.orb.o1{width:420px;height:420px;background:#7c5cff;top:-100px;right:-100px}
+.orb.o2{width:380px;height:380px;background:#22d3ee;bottom:10%;left:-120px;animation-delay:-6s}
+.orb.o3{width:300px;height:300px;background:#ff4d9d;top:50%;right:30%;animation-delay:-12s;opacity:.35}
+@keyframes float{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(40px,-30px) scale(1.08)}
+  66%{transform:translate(-30px,40px) scale(.95)}
+}
+
+/* ============ NAVBAR ============ */
+.nav{
+  position:fixed;top:18px;left:50%;transform:translateX(-50%);
+  width:min(1200px, calc(100% - 32px));
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 22px;
+  background:rgba(10,13,23,0.55);
+  backdrop-filter:blur(18px) saturate(160%);
+  -webkit-backdrop-filter:blur(18px) saturate(160%);
+  border:1px solid var(--glass-border);
+  border-radius:20px;
+  z-index:100;
+  transition:all .4s ease;
+}
+.nav.scrolled{padding:10px 22px;background:rgba(10,13,23,0.85);box-shadow:0 10px 40px rgba(0,0,0,.4)}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:.5px}
+.logo-mark{
+  width:38px;height:38px;border-radius:12px;
+  background:linear-gradient(135deg,#7c5cff,#22d3ee);
+  display:grid;place-items:center;color:#fff;font-weight:900;
+  box-shadow:0 8px 24px rgba(124,92,255,.45), inset 0 0 20px rgba(255,255,255,.2);
+  transform-style:preserve-3d;
+  animation:logoSpin 8s linear infinite;
+}
+@keyframes logoSpin{
+  0%{transform:rotateY(0)}
+  100%{transform:rotateY(360deg)}
+}
+.nav-links{display:flex;gap:6px;align-items:center}
+.nav-links a{
+  color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;
+  padding:8px 14px;border-radius:12px;transition:all .3s;
+  position:relative;
+}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,.05)}
+.nav-cta{
+  background:linear-gradient(135deg,#7c5cff,#22d3ee);
+  color:#fff !important;padding:10px 18px !important;
+  font-weight:700 !important;
+  box-shadow:0 8px 24px rgba(124,92,255,.4);
+  display:inline-flex;align-items:center;gap:6px;
+}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(124,92,255,.55)}
+.burger{display:none;background:none;border:0;color:#fff;font-size:24px;cursor:pointer}
+
+/* ============ HERO ============ */
+.hero{
+  min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  padding:140px 24px 80px;
+  position:relative;
+  perspective:1200px;
+}
+.hero-inner{max-width:1200px;width:100%;text-align:center;position:relative;z-index:2}
+.badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 18px;border-radius:999px;
+  background:rgba(124,92,255,.12);
+  border:1px solid rgba(124,92,255,.3);
+  font-size:13px;color:#c9bfff;font-weight:500;
+  margin-bottom:28px;
+  animation:fadeUp .8s ease both;
+}
+.badge .dot{width:8px;height:8px;border-radius:50%;background:#22d3ee;box-shadow:0 0 12px #22d3ee;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{
+  font-family:'Estedad',sans-serif;
+  font-size:clamp(36px,6vw,78px);
+  font-weight:900;
+  line-height:1.15;
+  letter-spacing:-.5px;
+  background:linear-gradient(135deg,#fff 0%,#c9bfff 40%,#7c5cff 70%,#22d3ee 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:22px;
+  animation:fadeUp 1s .1s ease both;
+}
+.hero p{
+  max-width:780px;margin:0 auto 36px;
+  font-size:clamp(15px,1.5vw,18px);
+  color:var(--muted);
+  animation:fadeUp 1s .25s ease both;
+}
+.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;animation:fadeUp 1s .4s ease both}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 28px;border-radius:14px;
+  font-weight:700;font-size:15px;text-decoration:none;
+  transition:all .35s cubic-bezier(.2,.8,.2,1);
+  cursor:pointer;border:0;
+  position:relative;overflow:hidden;
+}
+.btn-primary{
+  background:linear-gradient(135deg,#7c5cff,#22d3ee);
+  color:#fff;
+  box-shadow:0 12px 32px rgba(124,92,255,.45);
+}
+.btn-primary:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 18px 44px rgba(124,92,255,.6)}
+.btn-ghost{
+  background:rgba(255,255,255,.04);
+  color:#fff;
+  border:1px solid var(--glass-border);
+  backdrop-filter:blur(10px);
+}
+.btn-ghost:hover{background:rgba(255,255,255,.08);transform:translateY(-3px)}
+
+/* 3D floating cards around hero */
+.hero-float{
+  position:absolute;
+  width:120px;height:120px;
+  border-radius:24px;
+  background:linear-gradient(135deg,rgba(124,92,255,.15),rgba(34,211,238,.1));
+  border:1px solid var(--glass-border);
+  backdrop-filter:blur(10px);
+  display:grid;place-items:center;
+  font-size:36px;
+  animation:floatY 6s ease-in-out infinite;
+  transform-style:preserve-3d;
+}
+.hero-float.f1{top:18%;right:8%;animation-delay:0s}
+.hero-float.f2{bottom:15%;left:6%;animation-delay:-2s}
+.hero-float.f3{top:35%;left:12%;animation-delay:-4s;width:90px;height:90px;font-size:28px}
+@keyframes floatY{
+  0%,100%{transform:translateY(0) rotateX(0) rotateY(0)}
+  50%{transform:translateY(-25px) rotateX(15deg) rotateY(15deg)}
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ============ SECTION BASE ============ */
+section{padding:100px 24px;position:relative}
+.container{max-width:1200px;margin:0 auto}
+.section-head{text-align:center;margin-bottom:60px}
+.section-tag{
+  display:inline-block;
+  font-size:12px;font-weight:700;letter-spacing:3px;
+  color:var(--primary-2);
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+.section-title{
+  font-family:'Estedad',sans-serif;
+  font-size:clamp(28px,4vw,48px);
+  font-weight:800;
+  line-height:1.25;
+  margin-bottom:16px;
+  background:linear-gradient(135deg,#fff,#c9bfff);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.section-sub{color:var(--muted);max-width:680px;margin:0 auto;font-size:16px}
+
+/* ============ GROWTH SYSTEM STRIP ============ */
+.system-strip{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+  margin-top:50px;
+}
+.system-step{
+  padding:24px;border-radius:18px;
+  background:var(--glass);
+  border:1px solid var(--glass-border);
+  backdrop-filter:blur(10px);
+  transition:all .4s;
+  position:relative;overflow:hidden;
+}
+.system-step::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(124,92,255,.15),transparent 60%);
+  opacity:0;transition:opacity .4s;
+}
+.system-step:hover{transform:translateY(-6px);border-color:rgba(124,92,255,.4)}
+.system-step:hover::before{opacity:1}
+.system-step .num{
+  font-family:'Estedad',sans-serif;
+  font-size:42px;font-weight:900;
+  background:linear-gradient(135deg,#7c5cff,#22d3ee);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  line-height:1;
+}
+.system-step h4{margin-top:10px;font-size:17px;font-weight:700;color:#fff}
+.system-step p{font-size:13px;color:var(--muted);margin-top:6px}
+
+/* ============ PACKAGES ============ */
+.packages-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:22px;
+  perspective:1500px;
+}
+.pkg{
+  position:relative;
+  padding:32px 26px;
+  border-radius:24px;
+  background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.015));
+  border:1px solid var(--glass-border);
+  backdrop-filter:blur(14px);
+  transition:transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s, border-color .5s;
+  transform-style:preserve-3d;
+  overflow:hidden;
+}
+.pkg::before{
+  content:"";position:absolute;inset:0;border-radius:24px;
+  background:radial-gradient(600px circle at var(--mx,50%) var(--my,50%), rgba(124,92,255,.18), transparent 40%);
+  opacity:0;transition:opacity .4s;pointer-events:none;
+}
+.pkg:hover::before{opacity:1}
+.pkg:hover{transform:translateY(-10px) rotateX(4deg);border-color:rgba(124,92,255,.35);box-shadow:0 30px 60px rgba(0,0,0,.4), 0 0 0 1px rgba(124,92,255,.2)}
+.pkg .pkg-tag{
+  font-size:12px;font-weight:700;letter-spacing:2px;
+  color:var(--primary-2);text-transform:uppercase;
+}
+.pkg h3{
+  font-family:'Estedad',sans-serif;
+  font-size:24px;font-weight:800;margin:6px 0 8px;color:#fff;
+}
+.pkg .pkg-desc{color:var(--muted);font-size:14px;margin-bottom:22px;min-height:42px}
+.pkg .price{
+  display:flex;align-items:baseline;gap:6px;
+  padding:18px 0;border-top:1px dashed rgba(255,255,255,.08);
+  border-bottom:1px dashed rgba(255,255,255,.08);
+  margin-bottom:22px;
+}
+.pkg .price .num{
+  font-family:'Estedad',sans-serif;
+  font-size:40px;font-weight:900;
+  background:linear-gradient(135deg,#fff,#7c5cff);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.pkg .price .unit{color:var(--muted);font-size:13px}
+.pkg ul{list-style:none;margin-bottom:26px}
+.pkg ul li{
+  display:flex;align-items:flex-start;gap:10px;
+  padding:8px 0;font-size:14px;color:#cfd5e3;
+}
+.pkg ul li::before{
+  content:"✓";flex-shrink:0;
+  width:20px;height:20px;border-radius:50%;
+  background:linear-gradient(135deg,#7c5cff,#22d3ee);
+  color:#fff;font-size:11px;font-weight:900;
+  display:grid;place-items:center;margin-top:2px;
+}
+.pkg ul li.x{color:#6b7280;text-decoration:line-through;text-decoration-color:rgba(255,77,157,.5)}
+.pkg ul li.x::before{content:"✕";background:rgba(255,77,157,.2);color:#ff4d9d}
+.pkg .pkg-btn{
+  display:block;text-align:center;
+  padding:14px;border-radius:14px;
+  background:rgba(255,255,255,.06);
+  color:#fff;text-decoration:none;font-weight:700;
+  border:1px solid var(--glass-border);
+  transition:all .35s;
+}
+.pkg .pkg-btn:hover{background:linear-gradient(135deg,#7c5cff,#22d3ee);border-color:transparent;transform:translateY(-2px)}
+.pkg.featured{
+  border:1px solid rgba(124,92,255,.5);
+  background:linear-gradient(180deg,rgba(124,92,255,.12),rgba(34,211,238,.04));
+  box-shadow:0 20px 50px rgba(124,92,255,.2);
+}
+.pkg.featured::after{
+  content:"پیشنهاد زادمدیا";
+  position:absolute;top:18px;left:18px;
+  padding:5px 12px;border-radius:999px;
+  background:linear-gradient(135deg,#f5c451,#ff4d9d);
+  color:#1a1030;font-size:11px;font-weight:800;
+}
+
+/* ============ COMPARISON TABLE ============ */
+.compare-wrap{
+  overflow-x:auto;border-radius:20px;
+  border:1px solid var(--glass-border);
+  background:var(--glass);backdrop-filter:blur(14px);
+}
+.compare{width:100%;border-collapse:collapse;min-width:720px}
+.compare th,.compare td{
+  padding:16px 18px;text-align:center;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  font-size:14px;
+}
+.compare th{
+  background:rgba(124,92,255,.08);
+  font-weight:700;color:#fff;
+  font-family:'Estedad',sans-serif;
+}
+.compare th:first-child,.compare td:first-child{text-align:right;font-weight:600;color:#cfd5e3}
+.compare tr:last-child td{border-bottom:0}
+.compare tr:hover td{background:rgba(255,255,255,.02)}
+.compare .check{color:#22d3ee;font-weight:800}
+.compare .dash{color:#6b7280}
+.compare-note{color:var(--muted);font-size:13px;text-align:center;margin-top:18px}
+
+/* ============ STORY PACKAGES ============ */
+.story-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px}
+.story-card{
+  position:relative;
+  padding:34px 28px;border-radius:24px;
+  background:linear-gradient(135deg,rgba(255,77,157,.08),rgba(124,92,255,.06));
+  border:1px solid rgba(255,77,157,.2);
+  backdrop-filter:blur(14px);
+  transition:all .4s;
+  overflow:hidden;
+}
+.story-card::before{
+  content:"";position:absolute;top:-50%;right:-50%;
+  width:200%;height:200%;
+  background:conic-gradient(from 0deg,transparent,rgba(255,77,157,.15),transparent 30%);
+  animation:rotate 8s linear infinite;
+  opacity:.5;
+}
+.story-card > *{position:relative;z-index:1}
+@keyframes rotate{to{transform:rotate(360deg)}}
+.story-card:hover{transform:translateY(-8px);border-color:rgba(255,77,157,.5);box-shadow:0 20px 50px rgba(255,77,157,.2)}
+.story-card .frames{
+  font-family:'Estedad',sans-serif;
+  font-size:14px;font-weight:700;
+  color:#ff8fc0;letter-spacing:2px;
+}
+.story-card h3{font-family:'Estedad',sans-serif;font-size:26px;font-weight:800;margin:8px 0;color:#fff}
+.story-card .price{
+  font-family:'Estedad',sans-serif;
+  font-size:28px;font-weight:800;
+  background:linear-gradient(135deg,#ff4d9d,#f5c451);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  margin:14px 0;
+}
+.story-card ul{list-style:none;margin:18px 0}
+.story-card ul li{padding:6px 0;font-size:14px;color:#cfd5e3;display:flex;gap:10px;align-items:flex-start}
+.story-card ul li::before{content:"✦";color:#ff4d9d}
+
+.why-box{
+  margin-top:30px;padding:26px;border-radius:18px;
+  background:rgba(255,255,255,.03);
+  border:1px solid var(--glass-border);
+  text-align:center;
+}
+.why-box p{color:var(--muted);font-size:15px;margin-bottom:16px}
+
+/* ============ AI STUDIO ============ */
+.ai-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.ai-card{
+  padding:30px 26px;border-radius:22px;
+  background:linear-gradient(180deg,rgba(34,211,238,.06),rgba(124,92,255,.04));
+  border:1px solid rgba(34,211,238,.2);
+  backdrop-filter:blur(14px);
+  transition:all .4s;
+  position:relative;overflow:hidden;
+}
+.ai-card::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(400px circle at var(--mx,50%) var(--my,50%), rgba(34,211,238,.15), transparent 40%);
+  opacity:0;transition:opacity .4s;
+}
+.ai-card:hover::after{opacity:1}
+.ai-card:hover{transform:translateY(-8px) rotateX(3deg);border-color:rgba(34,211,238,.5);box-shadow:0 20px 50px rgba(34,211,238,.2)}
+.ai-card .ai-tag{font-size:12px;font-weight:700;letter-spacing:2px;color:#22d3ee;text-transform:uppercase}
+.ai-card h3{font-family:'Estedad',sans-serif;font-size:22px;font-weight:800;margin:6px 0;color:#fff}
+.ai-card .price{
+  font-family:'Estedad',sans-serif;
+  font-size:26px;font-weight:800;
+  background:linear-gradient(135deg,#22d3ee,#7c5cff);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  margin:12px 0;
+}
+.ai-card ul{list-style:none;margin:16px 0 22px}
+.ai-card ul li{padding:6px 0;font-size:14px;color:#cfd5e3;display:flex;gap:10px}
+.ai-card ul li::before{content:"◆";color:#22d3ee;font-size:10px;margin-top:6px}
+.ai-note{color:var(--muted);font-size:13px;text-align:center;margin-top:24px}
+
+/* ============ COACHING ============ */
+.coach-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:22px}
+.coach-card{
+  padding:34px 28px;border-radius:24px;
+  background:linear-gradient(180deg,rgba(245,196,81,.06),rgba(124,92,255,.04));
+  border:1px solid rgba(245,196,81,.2);
+  backdrop-filter:blur(14px);
+  transition:all .4s;
+}
+.coach-card:hover{transform:translateY(-8px);border-color:rgba(245,196,81,.5);box-shadow:0 20px 50px rgba(245,196,81,.15)}
+.coach-card .tag{font-size:12px;font-weight:700;letter-spacing:2px;color:#f5c451;text-transform:uppercase}
+.coach-card h3{font-family:'Estedad',sans-serif;font-size:24px;font-weight:800;margin:8px 0;color:#fff}
+.coach-card .desc{color:var(--muted);font-size:14px;margin-bottom:20px}
+.coach-card ul{list-style:none;margin-bottom:24px}
+.coach-card ul li{padding:7px 0;font-size:14px;color:#cfd5e3;display:flex;gap:10px}
+.coach-card ul li::before{content:"→";color:#f5c451;font-weight:900}
+.coach-note{color:var(--muted);font-size:13px;padding:14px;border-radius:12px;background:rgba(255,255,255,.03);margin-bottom:18px;border-right:3px solid #f5c451}
+
+/* ============ HOW WE WORK ============ */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.step{
+  padding:28px 22px;border-radius:20px;
+  background:var(--glass);border:1px solid var(--glass-border);
+  backdrop-filter:blur(10px);
+  transition:all .4s;
+  position:relative;
+}
+.step:hover{transform:translateY(-8px) rotateY(-4deg);border-color:rgba(124,92,255,.4);box-shadow:0 20px 40px rgba(0,0,0,.3)}
+.step .num{
+  font-family:'Estedad',sans-serif;
+  font-size:54px;font-weight:900;
+  background:linear-gradient(135deg,#7c5cff,#22d3ee);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  line-height:1;opacity:.9;
+}
+.step h4{font-size:18px;font-weight:700;margin:10px 0 6px;color:#fff}
+.step p{font-size:13px;color:var(--muted)}
+
+/* ============ FAQ ============ */
+.faq-list{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.faq-item{
+  border:1px solid var(--glass-border);
+  border-radius:16px;
+  background:var(--glass);
+  backdrop-filter:blur(10px);
+  overflow:hidden;
+  transition:all .3s;
+}
+.faq-item:hover{border-color:rgba(124,92,255,.3)}
+.faq-q{
+  width:100%;padding:20px 24px;
+  background:none;border:0;color:#fff;
+  font-family:inherit;font-size:15px;font-weight:600;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+  cursor:pointer;text-align:right;
+}
+.faq-q .icon{
+  width:28px;height:28px;border-radius:50%;
+  background:rgba(124,92,255,.15);
+  display:grid;place-items:center;
+  transition:transform .4s;
+  flex-shrink:0;
+}
+.faq-item.open .faq-q .icon{transform:rotate(45deg);background:linear-gradient(135deg,#7c5cff,#22d3ee)}
+.faq-a{
+  max-height:0;overflow:hidden;
+  transition:max-height .5s ease, padding .4s ease;
+  padding:0 24px;
+  color:var(--muted);font-size:14px;line-height:1.9;
+}
+.faq-item.open .faq-a{max-height:400px;padding:0 24px 22px}
+
+/* ============ CTA FOOTER ============ */
+.cta-final{
+  margin:80px auto 40px;max-width:1100px;
+  padding:60px 40px;border-radius:28px;
+  background:linear-gradient(135deg,rgba(124,92,255,.15),rgba(34,211,238,.1));
+  border:1px solid rgba(124,92,255,.3);
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+.cta-final::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(600px circle at 50% 0%, rgba(124,92,255,.3), transparent 60%);
+}
+.cta-final > *{position:relative;z-index:1}
+.cta-final h2{
+  font-family:'Estedad',sans-serif;
+  font-size:clamp(26px,3.5vw,40px);font-weight:800;margin-bottom:12px;
+  background:linear-gradient(135deg,#fff,#c9bfff);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.cta-final p{color:var(--muted);margin-bottom:28px;font-size:16px}
+.cta-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+footer{
+  padding:40px 24px 30px;
+  border-top:1px solid var(--glass-border);
+  text-align:center;color:var(--muted);font-size:13px;
+}
+footer .foot-brand{
+  font-family:'Estedad',sans-serif;
+  font-weight:800;color:#fff;font-size:18px;margin-bottom:6px;
+}
+
+/* ============ SCROLL REVEAL ============ */
+.reveal{opacity:0;transform:translateY(40px);transition:all .9s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:900px){
+  .system-strip{grid-template-columns:repeat(2,1fr)}
+  .nav-links{display:none;position:absolute;top:70px;right:0;left:0;flex-direction:column;padding:18px;background:rgba(10,13,23,.95);border:1px solid var(--glass-border);border-radius:18px;backdrop-filter:blur(18px)}
+  .nav-links.open{display:flex}
+  .burger{display:block}
+  .hero-float{display:none}
+}
+@media (max-width:560px){
+  .system-strip{grid-template-columns:1fr}
+  section{padding:70px 18px}
+  .hero{padding:120px 18px 60px}
+}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:#05060a}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#7c5cff,#22d3ee);border-radius:10px}
+</style>
+</head>
+<body>
+
+<!-- Background layers -->
+<div class="bg-cosmos"></div>
+<div class="bg-grid"></div>
+<div class="orb o1"></div>
+<div class="orb o2"></div>
+<div class="orb o3"></div>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <a href="#home" class="logo">
+    <span class="logo-mark">Z</span>
+    <span>ZAAD MEDIA</span>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="#packages">پکیج‌ها</a>
+    <a href="#stories">استوری اختصاصی</a>
+    <a href="#ai">AI Studio</a>
+    <a href="#coaching">کوچینگ کسب‌وکار</a>
+    <a href="#faq">سوالات متداول</a>
+    <a href="tel:09991248434" class="nav-cta">مشاوره و انتخاب پکیج ↗</a>
+  </div>
+  <button class="burger" id="burger">☰</button>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="home">
+  <div class="hero-float f1">📊</div>
+  <div class="hero-float f2">🚀</div>
+  <div class="hero-float f3">✨</div>
+
+  <div class="hero-inner">
+    <div class="badge"><span class="dot"></span> آژانس دیجیتال مارکتینگ زادمدیا</div>
+    <h1>رشد برند، اتفاقی نیست.</h1>
+    <p>استراتژی درست، محتوای حرفه‌ای و اجرای منظم، کنار هم مسیر رشد کسب‌وکار شما را می‌سازند. در زادمدیا به‌جای نسخه‌های آماده، متناسب با هدف برند شما برنامه‌ریزی می‌کنیم.</p>
+    <div class="hero-ctas">
+      <a href="#packages" class="btn btn-primary">مشاهده پکیج‌های همکاری ←</a>
+      <a href="https://wa.me/989991248434" class="btn btn-ghost">گفت‌وگو با زادمدیا</a>
+    </div>
+
+    <div class="system-strip">
+      <div class="system-step"><div class="num">01</div><h4>استراتژی</h4><p>استراتژی قبل از تولید محتوا</p></div>
+      <div class="system-step"><div class="num">02</div><h4>طراحی اختصاصی</h4><p>متناسب با هویت برند</p></div>
+      <div class="system-step"><div class="num">03</div><h4>تحلیل و بهینه‌سازی</h4><p>با نگاه به عملکرد</p></div>
+      <div class="system-step"><div class="num">04</div><h4>ZAAD / GROWTH SYSTEM</h4><p>از محتوا تا رشد کسب‌وکار</p></div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ PACKAGES ============ -->
+<section id="packages">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-tag">CONTENT & SOCIAL MEDIA</div>
+      <h2 class="section-title">پکیج‌های تولید محتوا و مدیریت پیج</h2>
+      <p class="section-sub">از تولید محتوای هدفمند تا مدیریت کامل صفحه؛ سطح همکاری را متناسب با ظرفیت و هدف کسب‌وکار خود انتخاب کنید.</p>
+    </div>
+
+    <div class="packages-grid">
+
+      <!-- START -->
+      <div class="pkg reveal">
+        <div class="pkg-tag">01 / START</div>
+        <h3>شروع حرفه‌ای</h3>
+        <p class="pkg-desc">برای کسب‌وکارهایی که تیم یا ادمین داخلی دارند.</p>
+        <div class="price"><span class="num">۲۶</span><span class="unit">میلیون تومان / ماه</span></div>
+        <ul>
+          <li>۸ ریلز یا ویدیوی کوتاه در ماه</li>
+          <li>استراتژی و تقویم محتوایی</li>
+          <li>ایده‌پردازی و سناریونویسی</li>
+          <li>تولید ویدیو، کاور و کپشن</li>
+          <li>برنامه اجرایی انتشار محتوا</li>
+          <li>بررسی عملکرد ماهانه</li>
+          <li>پاسخ به سوالات عمومی دایرکت</li>
+          <li class="x">ادمین و مدیریت پیج ندارد</li>
+          <li class="x">استوری در پکیج نیست</li>
+        </ul>
+        <a href="https://wa.me/989991248434?text=%D8%AF%D8%B1%D8%AE%D9%88%D8%A7%D8%B3%D8%AA%20%D9%BE%DA%A9%DB%8C%D8%AC%20START%20%D8%B2%D8%A7%D8%AF%D9%85%D8%AF%DB%8C%D8%A7" class="pkg-btn">درخواست این پکیج</a>
+      </div>
+
+      <!-- GROWTH -->
+      <div class="pkg reveal">
+        <div class="pkg-tag">02 / GROWTH</div>
+        <h3>رشد مستمر</h3>
+        <p class="pkg-desc">برای برندهایی که به محتوای بیشتر و تحلیل منظم نیاز دارند.</p>
+        <div class="price"><span class="num">۳۴</span><span class="unit">میلیون تومان / ماه</span></div>
+        <ul>
+          <li>۱۲ ریلز یا ویدیوی کوتاه در ماه</li>
+          <li>تمام خدمات پکیج START</li>
+          <li>تحلیل عملکرد و پیشنهاد بهبود</li>
+          <li>سناریوهای متنوع‌تر و هدفمند</li>
+          <li>برنامه‌ریزی محتوایی دقیق‌تر</li>
+          <li>جلسه مرور عملکرد ماهانه</li>
+          <li>پاسخ به سوالات عمومی دایرکت</li>
+          <li class="x">ادمین و مدیریت پیج ندارد</li>
+          <li class="x">استوری در پکیج نیست</li>
+        </ul>
+        <a href="https://wa.me/989991248434?text=%D8%AF%D8%B1%D8%AE%D9%88%D8%A7%D8%B3%D8%AA%20%D9%BE%DA%A9%DB%8C%D8%AC%20GROWTH%20%D8%B2%D8%A7%D8%AF%D9%85%D8%AF%DB%8C%D8%A7" class="pkg-btn">درخواست این پکیج</a>
+      </div>
+
+      <!-- PRO -->
+      <div class="pkg featured reveal">
+        <div class="pkg-tag">03 / PRO</div>
+        <h3>مدیریت و رشد حرفه‌ای محتوا</h3>
+        <p class="pkg-desc">برای برندهایی که به خروجی محتوایی بیشتر و نگاه تحلیلی نیاز دارند.</p>
+        <div class="price"><span class="num">۵۹</span><span class="unit">میلیون تومان / ماه</span></div>
+        <ul>
+          <li>۱۶ ریلز یا ویدیوی کوتاه در ماه</li>
+          <li>تمام خدمات پکیج GROWTH</li>
+          <li>استراتژی محتوایی پیشرفته</li>
+          <li>تحلیل هفتگی عملکرد محتوا</li>
+          <li>ایده‌پردازی کمپین‌های محتوایی</li>
+          <li>ترکیب محتوای خلاقانه و AI در صورت تناسب</li>
+          <li>گزارش عملکرد و پیشنهاد رشد برند</li>
+          <li>پاسخ به سوالات عمومی دایرکت</li>
+          <li class="x">ادمین و مدیریت پیج ندارد</li>
+          <li class="x">استوری در پکیج نیست</li>
+        </ul>
+        <a href="https://wa.me/989991248434?text=%D8%AF%D8%B1%D8%AE%D9%88%D8%A7%D8%B3%D8%AA%20%D9%BE%DA%A9%DB%8C%D8%AC%20PRO%20%D8%B2%D8%A7%D8%AF%D9%85%D8%AF%DB%8C%D8%A7" class="pkg-btn">انتخاب پکیج PRO</a>
+      </div>
+
+      <!-- SCALE -->
+      <div class="pkg reveal">
+        <div class="pkg-tag">04 / SCALE</div>
+        <h3>توسعه برند</h3>
+        <p class="pkg-desc">راهکار جامع برای کسب‌وکارهایی که مدیریت کامل پیج می‌خواهند.</p>
+        <div class="price"><span class="num">۷۹</span><span class="unit">میلیون تومان / ماه</span></div>
+        <ul>
+          <li>۲۰ ریلز یا ویدیوی کوتاه در ماه</li>
+          <li>تمام خدمات پکیج PRO</li>
+          <li>ادمین و مدیریت کامل پیج</li>
+          <li>زمان‌بندی و انتشار محتوا</li>
+          <li>مدیریت تعاملات و کامنت‌ها</li>
+          <li>پاسخ‌گویی دایرکت در چارچوب توافق‌شده</li>
+          <li>پایش مستمر و برنامه توسعه برند</li>
+          <li>گزارش عملکرد و جلسه مرور دوره‌ای</li>
+          <li class="x">استوری در پکیج نیست</li>
+        </ul>
+        <a href="https://wa.me/989991248434?text=%D8%AF%D8%B1%D8%AE%D9%88%D8%A7%D8%B3%D8%AA%20%D9%BE%DA%A9%DB%8C%D8%AC%20SCALE%20%D8%B2%D8%A7%D8%AF%D9%85%D8%AF%DB%8C%D8%A7" class="pkg-btn">درخواست پکیج SCALE</a>
+      </div>
+
+    </div>
+
+    <div class="why-box reveal" style="margin-top:30px">
+      <p><strong style="color:#fff">شفافیت در محدوده خدمات:</strong> هیچ‌کدام از پکیج‌های بالا شامل استوری نیستند. طراحی و انتشار استوری از طریق پکیج‌های مستقل همین صفحه قابل سفارش است. پاسخ‌گویی دایرکت در پکیج‌های تولید محتوا صرفاً برای سوالات عمومی و پرتکرار است و شامل مشاوره تخصصی، تشخیص نیاز حرفه‌ای یا تعهدات فروش نمی‌شود. مدیریت کامل پیج فقط در پکیج چهارم ارائه می‌شود.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPARISON ============ -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-tag">PACKAGE COMPARISON</div>
+      <h2 class="section-title">تفاوت پکیج‌ها در یک نگاه</h2>
+      <p class="section-sub">محدوده خدمات را قبل از انتخاب، شفاف و کنار هم بررسی کنید.</p>
+    </div>
+
+    <div class="compare-wrap reveal">
+      <table class="compare">
+        <thead>
+          <tr>
+            <th>خدمات</th><th>START</th><th>GROWTH</th><th>PRO</th><th>SCALE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>تعداد ریلز ماهانه</td><td>۸</td><td>۱۲</td><td>۱۶</td><td>۲۰</td></tr>
+          <tr><td>استراتژی و تقویم محتوا</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>تحلیل عملکرد</td><td>ماهانه</td><td>ماهانه</td><td>هفتگی</td><td>مستمر</td></tr>
+          <tr><td>ادمین و مدیریت کامل پیج</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="check">✓</td></tr>
+          <tr><td>طراحی استوری</td><td>جداگانه</td><td>جداگانه</td><td>جداگانه</td><td>جداگانه</td></tr>
+          <tr><td>پاسخ به سوالات عمومی دایرکت</td><td>محدود</td><td>محدود</td><td>محدود</td><td>طبق شرح خدمات</td></tr>
+          <tr><td>قیمت ماهانه</td><td>۲۶ میلیون</td><td>۳۴ میلیون</td><td>۵۹ میلیون</td><td>۷۹ میلیون</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="compare-note reveal">تعداد خروجی‌ها و جزئیات نهایی تولید، زمان‌بندی و تعهدات اجرایی در قرارداد مشخص می‌شود.</p>
+  </div>
+</section>
+
+<!-- ============ STORIES ============ -->
+<section id="stories">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-tag">CUSTOM STORY DESIGN</div>
+      <h2 class="section-title">استوری آماده نیست؛ هویت بصری برند شماست.</h2>
+      <p class="section-sub">در زادمدیا، استوری‌ها از قالب‌های تکراری و آماده انتخاب نمی‌شوند. هر طرح بر اساس هویت بصری، هدف ارتباطی، محصول، کمپین و لحن برند شما به‌صورت اختصاصی طراحی می‌شود.</p>
+    </div>
+
+    <div class="story-grid">
+      <div class="story-card reveal">
+        <div class="frames">✳ ۱۰۰ فریم در ماه</div>
+        <h3>استوری اختصاصی ۱۰۰</h3>
+        <p style="color:var(--muted);font-size:14px">برای برندهایی که به حضور منظم و طراحی یکپارچه در طول ماه نیاز دارند.</p>
+        <div class="price">۶,۰۰۰,۰۰۰ تومان / ماه</div>
+        <ul>
+          <li>۱۰۰ استوری طراحی‌شده</li>
+          <li>طراحی اختصاصی مطابق هویت برند</li>
+          <li>هماهنگی رنگ، تایپوگرافی و لحن بصری</li>
+          <li>مناسب اطلاع‌رسانی، تعامل و معرفی محصول</li>
+        </ul>
+        <a href="https://wa.me/989991248434?text=%D9%BE%DA%A9%DB%8C%D8%AC%20%D8%A7%D8%B3%D8%AA%D9%88%D8%B1%DB%8C%20%D8%A7%D8%AE%D8%AA%D8%B5%D8%A7%D8%B5%DB%8C%20100%20%D8%B9%D8%AF%D8%AF" class="btn btn-primary" style="width:100%;justify-content:center">سفارش پکیج ۱۰۰ استوری</a>
+      </div>
+
+      <div class="story-card reveal">
+        <div class="frames">✦ ۱۴۴ فریم در ماه</div>
+        <h3>استوری اختصاصی ۱۴۴</h3>
+        <p style="color:var(--muted);font-size:14px">برای برندهای فعال با نیاز به ارتباط پیوسته‌تر و پوشش محتوایی گسترده‌تر.</p>
+        <div class="price">۹,۵۰۰,۰۰۰ تومان / ماه</div>
+        <ul>
+          <li>۱۴۴ استوری طراحی‌شده</li>
+          <li>طراحی اختصاصی و غیرقالبی</li>
+          <li>یکپارچگی گرافیکی در طول ماه</li>
+          <li>مناسب کمپین‌ها، محصولات و پیشنهادهای فروش</li>
+        </ul>
+        <a href="https://wa.me/989991248434?text=%D9%BE%DA%A9%DB%8C%D8%AC%20%D8%A7%D8%B3%D8%AA%D9%88%D8%B1%DB%8C%20%D8%A7%D8%AE%D8%AA%D8%B5%D8%A7%D8%B5%DB%8C%20144%20%D8%B9%D8%AF%D8%AF" class="btn btn-primary" style="width:100%;justify-content:center">سفارش پکیج ۱۴۴ استوری</a>
+      </div>
+    </div>
+
+    <div class="why-box reveal">
+      <p><strong style="color:#fff">چرا طراحی اختصاصی مهم است؟</strong><br>استوری فقط پر کردن فضای روزانه نیست؛ هر فریم باید در خدمت هویت برند، انتقال پیام و اقدام مخاطب باشد.</p>
+      <a href="tel:09991248434" class="btn btn-ghost">مشاوره انتخاب پکیج</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AI STUDIO ============ -->
+<section id="ai">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-tag">ZAAD AI PRODUCT STUDIO</div>
+      <h2 class="section-title">محصول شما، در هر فضایی که تصور کنید.</h2>
+      <p class="section-sub">تولید تصاویر تبلیغاتی محصول با کمک هوش مصنوعی؛ برای ساخت محتوای بصری متنوع، کمپین‌های تبلیغاتی و نمایش محصول در سناریوهای خلاقانه.</p>
+    </div>
+
+    <div class="ai-grid">
+      <div class="ai-card reveal">
+        <div class="ai-tag">AI STUDIO / 01</div>
+        <h3>شروع خلاقانه</h3>
+        <p style="color:var(--muted);font-size:14px">برای شروع تولید تصاویر تبلیغاتی و تست ایده‌های بصری.</p>
+        <div class="price">۱۵ میلیون تومان · پکیج ۲۰ تصویر</div>
+        <ul>
+          <li>۲۰ تصویر تبلیغاتی محصول</li>
+          <li>سناریوپردازی بصری متناسب با محصول</li>
+          <li>تنوع در فضا و چیدمان</li>
+          <li>مناسب شبکه‌های اجتماعی و تبلیغات</li>
+        </ul>
+        <a href="https://wa.me/989991248434?text=%D8%B3%D9%81%D8%A7%D8%B1%D8%B4%20AI%20Studio%2020%20%D8%AA%D8%B5%D9%88%DB%8C%D8%B1" class="btn btn-primary" style="width:100%;justify-content:center">سفارش پکیج</a>
+      </div>
+
+      <div class="ai-card reveal">
+        <div class="ai-tag">AI STUDIO / 02</div>
+        <h3>توسعه بصری</h3>
+        <p style="color:var(--muted);font-size:14px">برای تنوع بیشتر در محتوای محصول و استفاده در کمپین‌ها.</p>
+        <div class="price">۱۸ میلیون تومان · پکیج ۳۰ تصویر</div>
+        <ul>
+          <li>۳۰ تصویر تبلیغاتی محصول</li>
+          <li>تنوع بیشتر در کانسپت و فضا</li>
+          <li>خروجی مناسب شبکه‌های اجتماعی</li>
+          <li>برنامه‌ریزی برای چند کاربرد تبلیغاتی</li>
+        </ul>
+        <a href="https://wa.me/989991248434?text=%D8%B3%D9%81%D8%A7%D8%B1%D8%B4%20AI%20Studio%2030%20%D8%AA%D8%B5%D9%88%DB%8C%D8%B1" class="btn btn-primary" style="width:100%;justify-content:center">سفارش پکیج</a>
+      </div>
+
+      <div class="ai-card reveal">
+        <div class="ai-tag">AI STUDIO / 03</div>
+        <h3>کمپین گسترده</h3>
+        <p style="color:var(--muted);font-size:14px">برای برندهایی که به آرشیو تصویری گسترده‌تر نیاز دارند.</p>
+        <div class="price">۲۱ میلیون تومان · پکیج ۵۰ تصویر</div>
+        <ul>
+          <li>۵۰ تصویر تبلیغاتی محصول</li>
+          <li>تنوع گسترده‌تر در سناریوها</li>
+          <li>مناسب کمپین‌ها و محتوای مستمر</li>
+          <li>هماهنگی بصری در مجموعه تصاویر</li>
+        </ul>
+        <a href="https://wa.me/989991248434?text=%D8%B3%D9%81%D8%A7%D8%B1%D8%B4%20AI%20Studio%2050%20%D8%AA%D8%B5%D9%88%DB%8C%D8%B1" class="btn btn-primary" style="width:100%;justify-content:center">سفارش پکیج</a>
+      </div>
+    </div>
+    <p class="ai-note reveal">تعداد اصلاحات، سطح پیچیدگی، نوع محصول و جزئیات تحویل پیش از شروع پروژه هماهنگ می‌شود. امکان اجرای نمونه یا سفارش اختصاصی با هماهنگی قبلی وجود دارد.</p>
+  </div>
+</section>
+
+<!-- ============ COACHING ============ -->
+<section id="coaching">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-tag">BUSINESS COACHING & STRATEGIC ADVISORY</div>
+      <h2 class="section-title">فقط روی کسب‌وکارتان کار نکنید؛ آن را آگاهانه هدایت کنید.</h2>
+      <p class="section-sub">کوچینگ و همراهی اختصاصی برای صاحبان کسب‌وکار و مدیرانی که می‌خواهند از تصمیم‌های پراکنده به اولویت‌های روشن، برنامه اجرایی و پیگیری منظم برسند.</p>
+    </div>
+
+    <div class="coach-grid">
+      <div class="coach-card reveal">
+        <div class="tag">مسیر شش‌ماهه · 6 MONTHS / FOCUSED GROWTH</div>
+        <h3>کوچینگ و توسعه کسب‌وکار</h3>
+        <p class="desc">برای کسب‌وکارهایی که به شفافیت، نظم اجرایی و یک مسیر مشخص برای رشد نیاز دارند.</p>
+        <ul>
+          <li>ارزیابی وضعیت فعلی کسب‌وکار و شناسایی گلوگاه‌ها</li>
+          <li>تعیین اهداف و اولویت‌های واقع‌بینانه</li>
+          <li>تدوین نقشه راه و برنامه اجرایی مرحله‌ای</li>
+          <li>بررسی مدل درآمدی، پیشنهادها و قیمت‌گذاری</li>
+          <li>بهبود مسیر جذب مشتری و فرآیند فروش</li>
+          <li>بازبینی شاخص‌های کلیدی عملکرد (KPI)</li>
+          <li>جلسات پیگیری و پاسخ‌گویی نسبت به اقدامات توافق‌شده</li>
+        </ul>
+        <div class="coach-note">مبلغ و تعداد جلسات بر اساس نیازسنجی تعیین می‌شود.</div>
+        <a href="https://wa.me/989991248434?text=%D8%AF%D8%B1%D8%AE%D9%88%D8%A7%D8%B3%D8%AA%20%D9%85%D8%B4%D8%A7%D9%88%D8%B1%D9%87%20%DA%A9%D9%88%DA%86%DB%8C%D9%86%DA%AF%20%D8%B4%D8%B4%20%D9%85%D8%A7%D9%87%D9%87" class="btn btn-primary" style="width:100%;justify-content:center">درخواست جلسه ارزیابی</a>
+      </div>
+
+      <div class="coach-card reveal">
+        <div class="tag">مسیر یک‌ساله · 12 MONTHS / BUSINESS PARTNERSHIP</div>
+        <h3>همراهی استراتژیک سالانه</h3>
+        <p class="desc">برای مدیرانی که به همراهی مستمر در تصمیم‌گیری، توسعه تیم و اجرای برنامه رشد نیاز دارند.</p>
+        <ul>
+          <li>تمام محورهای برنامه شش‌ماهه با افق بلندمدت</li>
+          <li>برنامه‌ریزی فصلی و بازبینی اهداف سالانه</li>
+          <li>تحلیل جایگاه برند، بازار و رقبا</li>
+          <li>توسعه استراتژی بازاریابی، فروش و جذب مشتری</li>
+          <li>بهبود فرآیندها، نقش‌ها و تفویض مسئولیت</li>
+          <li>بررسی دوره‌ای KPIها و اصلاح مسیر اجرا</li>
+          <li>همراهی در تصمیم‌های کلیدی و اولویت‌بندی منابع</li>
+          <li>ارزیابی پیشرفت و برنامه‌ریزی مرحله بعد</li>
+        </ul>
+        <div class="coach-note">مبلغ و سطح همراهی پس از جلسه شناخت کسب‌وکار مشخص می‌شود.</div>
+        <a href="https://wa.me/989991248434?text=%D8%AF%D8%B1%D8%AE%D9%88%D8%A7%D8%B3%D8%AA%20%D9%85%D8%B4%D8%A7%D9%88%D8%B1%D9%87%20%DA%A9%D9%88%DA%86%DB%8C%D9%86%DA%AF%20%D8%B3%D8%A7%D9%84%D8%A7%D9%86%D9%87" class="btn btn-primary" style="width:100%;justify-content:center">درخواست جلسه ارزیابی</a>
+      </div>
+    </div>
+
+    <div class="why-box reveal" style="margin-top:30px">
+      <p><strong style="color:#fff">رویکرد زادمدیا:</strong> کوچینگ فقط ارائه توصیه نیست. همکاری با شناخت وضعیت موجود آغاز می‌شود، به هدف‌گذاری و برنامه اجرایی می‌رسد و با جلسات پیگیری و بررسی شاخص‌ها ادامه پیدا می‌کند. دامنه خدمات، تعداد جلسات، کانال ارتباطی و موارد خارج از تعهد، پیش از عقد قرارداد شفاف می‌شوند. نتیجه کسب‌وکار به شرایط بازار و میزان اجرای اقدامات نیز وابسته است.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW WE WORK ============ -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-tag">HOW WE WORK</div>
+      <h2 class="section-title">مسیر همکاری با زادمدیا</h2>
+      <p class="section-sub">فرآیند روشن، از شناخت مسئله تا اجرا و بازبینی.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step reveal"><div class="num">۰۱</div><h4>شناخت و نیازسنجی</h4><p>اهداف، مخاطب، وضعیت فعلی و محدودیت‌های اجرایی بررسی می‌شود.</p></div>
+      <div class="step reveal"><div class="num">۰۲</div><h4>انتخاب مسیر</h4><p>خدمات متناسب با نیاز واقعی کسب‌وکار و محدوده قرارداد مشخص می‌شود.</p></div>
+      <div class="step reveal"><div class="num">۰۳</div><h4>برنامه‌ریزی و اجرا</h4><p>تولید و اجرای کار طبق تقویم و مسئولیت‌های توافق‌شده پیش می‌رود.</p></div>
+      <div class="step reveal"><div class="num">۰۴</div><h4>تحلیل و بهبود</h4><p>عملکرد بررسی می‌شود و برای مرحله بعد تصمیم‌های دقیق‌تری می‌گیریم.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-tag">FAQ</div>
+      <h2 class="section-title">پاسخ به پرسش‌های پرتکرار</h2>
+      <p class="section-sub">برای اینکه پیش از شروع همکاری، محدوده خدمات و نحوه اجرا روشن باشد.</p>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q">آیا استوری در پکیج‌های مدیریت محتوا وجود دارد؟<span class="icon">+</span></button>
+        <div class="faq-a"><p>خیر. استوری‌ها به‌صورت مستقل و در دو پکیج ۱۰۰ عددی یا ۱۴۴ عددی ارائه می‌شوند. طراحی تمام استوری‌ها اختصاصی و متناسب با هویت بصری برند است.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">کدام پکیج شامل ادمین پیج است؟<span class="icon">+</span></button>
+        <div class="faq-a"><p>ادمین و مدیریت کامل پیج فقط در پکیج چهارم، SCALE با قیمت ماهانه ۷۹ میلیون تومان ارائه می‌شود. سه پکیج اول شامل ادمین نیستند.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">پاسخ‌گویی دایرکت در پکیج‌ها چه محدوده‌ای دارد؟<span class="icon">+</span></button>
+        <div class="faq-a"><p>پاسخ به پرسش‌های عمومی و پرتکرار در چارچوب اطلاعات تأییدشده برند است. مشاوره تخصصی، تشخیص نیاز، وعده فروش یا پاسخ‌گویی حرفه‌ای خارج از محدوده توافق‌شده، جزو این خدمت نیست. جزئیات پاسخ‌گویی پکیج چهارم در قرارداد تعیین می‌شود.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">مدت قرارداد پکیج‌های محتوا چقدر است؟<span class="icon">+</span></button>
+        <div class="faq-a"><p>مدت و شرایط قرارداد در جلسه نیازسنجی مشخص می‌شود و پیش از شروع، تعداد خروجی‌ها، زمان‌بندی، مسئولیت‌ها و شرایط پرداخت به‌صورت شفاف در قرارداد درج خواهد شد.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">پکیج‌های AI Studio برای چه محصولاتی مناسب‌اند؟<span class="icon">+</span></button>
+        <div class="faq-a"><p>برای محصولات قابل نمایش در تصاویر تبلیغاتی، از محصولات مصرفی تا محصولات صنعتی. امکان‌پذیری و سبک خروجی پس از بررسی محصول، تصاویر مرجع و هدف کمپین تأیید می‌شود.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">قیمت کوچینگ شش‌ماهه و یک‌ساله چطور تعیین می‌شود؟<span class="icon">+</span></button>
+        <div class="faq-a"><p>پس از جلسه شناخت، سطح نیاز، تعداد جلسات، میزان همراهی بین جلسات و دامنه خدمات تعیین می‌شود و پیشنهاد اختصاصی ارائه خواهد شد.</p></div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:40px" class="reveal">
+      <a href="tel:09991248434" class="btn btn-ghost">گفت‌وگو با زادمدیا</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<div class="cta-final reveal">
+  <div class="section-tag">LET'S BUILD WHAT'S NEXT</div>
+  <h2>برای رشد بعدی برندتان آماده‌اید؟</h2>
+  <p>نیاز کسب‌وکارتان را مطرح کنید تا مناسب‌ترین مسیر همکاری را بررسی کنیم.</p>
+  <div class="cta-links">
+    <a href="tel:09991248434" class="btn btn-primary">09991248434</a>
+    <a href="https://wa.me/989991248434" class="btn btn-ghost">واتساپ</a>
+    <a href="https://www.instagram.com/zaadmediaa/" class="btn btn-ghost">اینستاگرام زادمدیا ↗</a>
+  </div>
+</div>
+
+<footer>
+  <div class="foot-brand">ZAAD MEDIA · Digital Marketing Agency</div>
+  <div>© Zaad Media. تمامی حقوق محفوظ است. · استراتژی · محتوا · رشد</div>
+  <div style="margin-top:14px"><a href="https://wa.me/989991248434" class="btn btn-primary" style="padding:10px 20px;font-size:13px">مشاوره سریع ↗</a></div>
+</footer>
+
+<script>
+// Navbar scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 30);
+});
+
+// Mobile menu
+document.getElementById('burger').addEventListener('click', () => {
+  document.getElementById('navLinks').classList.toggle('open');
+});
+document.querySelectorAll('#navLinks a').forEach(a => a.addEventListener('click', () => {
+  document.getElementById('navLinks').classList.remove('open');
+}));
+
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+
+// Scroll reveal
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// Mouse-follow spotlight on cards
+document.querySelectorAll('.pkg, .ai-card').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const r = card.getBoundingClientRect();
+    const x = ((e.clientX - r.left) / r.width) * 100;
+    const y = ((e.clientY - r.top) / r.height) * 100;
+    card.style.setProperty('--mx', x + '%');
+    card.style.setProperty('--my', y + '%');
+  });
+});
+
+// 3D tilt on hero float cards
+document.querySelectorAll('.hero-float').forEach(el => {
+  el.addEventListener('mousemove', (e) => {
+    const r = el.getBoundingClientRect();
+    const x = (e.clientX - r.left - r.width/2) / r.width;
+    const y = (e.clientY - r.top - r.height/2) / r.height;
+    el.style.transform = `translateY(-10px) rotateX(${-y*20}deg) rotateY(${x*20}deg)`;
+  });
+  el.addEventListener('mouseleave', () => {
+    el.style.transform = '';
+  });
+});
+
+// Parallax orbs with mouse
+document.addEventListener('mousemove', (e) => {
+  const x = (e.clientX / window.innerWidth - 0.5) * 20;
+  const y = (e.clientY / window.innerHeight - 0.5) * 20;
+  document.querySelector('.orb.o1').style.transform = `translate(${x}px, ${y}px)`;
+  document.querySelector('.orb.o2').style.transform = `translate(${-x}px, ${-y}px)`;
+  document.querySelector('.orb.o3').style.transform = `translate(${x*0.6}px, ${-y*0.6}px)`;
+});
+</script>
+
+</body>
+</html>
